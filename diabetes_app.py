@@ -21,12 +21,13 @@ diabetes_prediction_Model = load('model_.pkl')
 
 def analyze():
     """Saves as a csv file and predicts if the person has diabetes or not."""
+
     # gets the values from input entries
     values = get_values()
 
     # create a dataframe with the values
     df = pd.DataFrame([values], columns=['Pregnancies', 'Glucose', 'BloodPressure', 'SkinThickness', 'Insulin', 'BMI', 'DiabetesPedigreeFunction', 'Age'])
-    
+
     # make a prediction
     prediction = diabetes_prediction_Model.predict(df)
     if prediction[0] == 1:
@@ -37,6 +38,7 @@ def analyze():
 
 def get_values():
     """Gets the values from input entries."""
+
     values = {
     'Pregnancies': float(entry_pregnancies.get()),
     'Glucose': float(entry_glucose.get()),
